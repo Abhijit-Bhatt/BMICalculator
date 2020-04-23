@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="enter_weight">Enter weight</string>
+    <string name="radiobutton">pound/inch</string>
+    <string name="radiobutton2">kilogram/meter</string>
+    <string name="pound_inch">pound/inch</string>
+    <string name="kilogram_meter">kilogram/meter</string>
+    <string name="enter_height">Enter height</string>
+    <string name="calculate_bmi">Calculate BMI</string>
+    <string name="bmi">" "</string>
+    <string name="output_text">Output Text</string>
+</resources>

@@ -2,6 +2,7 @@ package com.example.bmicalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton imperial;
     RadioButton metric;
     TextView BMI;
+    Double bmiValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,15 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(imperial.isChecked()){
-            double bmi = (weight*703)/(height*height);
-            bmi = Math.round(bmi * 100.0) /100.0;
-            BMI.setText(String.valueOf(bmi));
+            bmiValue = (weight*703)/(height*height);
+            bmiValue = Math.round(bmiValue * 100.0) /100.0;
+            BMI.setText(String.valueOf(bmiValue));
         }
 
         else if(metric.isChecked()){
-            double bmi = (weight)/(height*height);
-            bmi = Math.round(bmi * 100.0) /100.0;
-            BMI.setText(String.valueOf(bmi));
+            bmiValue = (weight)/(height*height);
+            bmiValue = Math.round(bmiValue * 100.0) /100.0;
+            BMI.setText(String.valueOf(bmiValue));
         }
 
         else {
@@ -80,6 +82,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    public void getAdvice(View view){
+        Intent intent = new Intent(this, otherActivity.class);
+        try{
+            Bundle bundle = new Bundle();
+            bundle.putDouble("bmi value", bmiValue);
+            intent.putExtras(bundle);
+        }
+        catch(Exception e){
+            Toast.makeText(getApplicationContext(), "Calculate BMI first", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        startActivity(intent);
     }
 }
 

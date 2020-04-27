@@ -12,7 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     EditText weightText;
     EditText heightText;
@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
         heightText.setHint("Enter height in meters");
     }
 
+    public void clickGetAdvice(View view){
+        Intent newAdvice = new Intent(MainActivity.this, otherActivity.class);
+        startActivity(newAdvice);
+    }
+
+
     public void checkBMI(View view){
         double weight;
         double height;
@@ -61,9 +67,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Enter values", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
-
 
         if(imperial.isChecked()){
             bmiValue = (weight*703)/(height*height);
@@ -80,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         else {
             Toast.makeText(getApplicationContext(), "Select unit type", Toast.LENGTH_SHORT).show();
         }
-
 
     }
 

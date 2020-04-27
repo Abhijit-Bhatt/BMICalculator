@@ -9,4 +9,5 @@
     <string name="calculate_bmi">Calculate BMI</string>
     <string name="bmi">" "</string>
     <string name="output_text">Output Text</string>
+    <string name="get_advice">Get Advice</string>
 </resources>
